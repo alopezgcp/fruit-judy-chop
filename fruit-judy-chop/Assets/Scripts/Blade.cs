@@ -22,6 +22,9 @@ public class Blade : MonoBehaviour {
 		cam = Camera.main;
 		rb = GetComponent<Rigidbody2D>();
 		circleCollider = GetComponent<CircleCollider2D>();
+        TrailRenderer trail = bladeTrailPrefab.GetComponent<TrailRenderer>();
+        trail.startWidth = 1f;
+        trail.endWidth = trail.startWidth / 10;
 	}
 
 	// Update is called once per frame
