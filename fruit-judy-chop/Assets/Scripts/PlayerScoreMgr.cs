@@ -8,6 +8,8 @@ public class PlayerScoreMgr : MonoBehaviour
 {
     public InputField NameField;
     public Text scoreText;
+    public Text topScoreText;
+
     private List<string> playerScores;
     private List<string> allScores;
 
@@ -16,6 +18,8 @@ public class PlayerScoreMgr : MonoBehaviour
         FileManager fm = new FileManager();
         allScores = fm.GetScores();
         playerScores = new List<string>();
+
+        PrintTopScore();
     }
 
     private void Update()
@@ -79,6 +83,35 @@ public class PlayerScoreMgr : MonoBehaviour
         }
 
         scoreText.text = "Previous Scores for " + Stats.playerName + "\n" + scoreString;
+    }
+
+    void PrintTopScore()
+    {
+        string entryA, entryB;
+        int scoreA, scoreB;
+
+        //insertion sort
+        for (int i = 0; i < allScores.Count - 1; ++i)
+        {
+            for (int j = i; j >= 0; --j)
+            {
+                entryA = allScores[j];
+                scoreA = int.Parse(entryA.Split(',')[0]);
+
+                entryB = allScores[j + 1];
+                scoreB = int.Parse(entryB.Split(',')[0]);
+
+                if (scoreA < scoreB)
+                {
+                    allScores[j] = entryB;
+                    allScores[j + 1] = entryA;
+                }
+            }
+        }
+
+        string name = allScores[0].Split(',')[1];
+        string score = allScores[0].Split(',')[0];
+        topScoreText.text = "Top Score\n" + name + " - " + score;
     }
 
     public void StartGame()

@@ -182,7 +182,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Please provide a name.
 --- !u!222 &260910052
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 307561296}
   - component: {fileID: 307561295}
   m_Layer: 5
-  m_Name: Prompt
+  m_Name: TopScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -304,8 +304,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 154}
-  m_SizeDelta: {x: 450, y: 54.3}
+  m_AnchoredPosition: {x: 0, y: 153.70001}
+  m_SizeDelta: {x: 450, y: 75.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &307561295
 MonoBehaviour:
@@ -334,13 +334,15 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 65
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Enter Your Name to Play
+  m_Text: 'Featured Score
+
+    Name - Score'
 --- !u!222 &307561296
 CanvasRenderer:
   m_ObjectHideFlags: 0
