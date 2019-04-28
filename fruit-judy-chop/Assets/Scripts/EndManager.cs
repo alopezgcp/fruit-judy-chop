@@ -14,7 +14,11 @@ public class EndManager : MonoBehaviour
 
     public void DisplayStats()
     {
-        statsText.text = Stats.playerName + "\n" + Stats.CurrentScore + "\n" + Stats.finalGameTime;
+        int min = (int)Stats.gameTime / 60;
+        int sec = (int)Stats.gameTime % 60;
+        int ms = (int)(Stats.gameTime * 100) % 100;
+        string timerText = min.ToString("00") + ":" + sec.ToString("00") + ":" + ms.ToString("00");
+        statsText.text = Stats.playerName + "\n" + Stats.CurrentScore + "\n" + timerText;
     }
 
     public void PlayAgain()

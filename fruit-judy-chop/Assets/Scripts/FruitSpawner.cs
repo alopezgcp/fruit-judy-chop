@@ -7,13 +7,15 @@ public class FruitSpawner : MonoBehaviour {
 	public GameObject fruitPrefab;
 	public Transform[] spawnPoints;
 
-	public float minDelay = .1f;
-	public float maxDelay = 1f;
+    public float minDelay = .1f;
+    public float maxDelay = 1f;
 
 	// Use this for initialization
 	void Start () {
 		StartCoroutine(SpawnFruits());
-	}
+        minDelay = .01f + (Stats.fruitSpawnRate * 0.5f);
+        maxDelay = .05f + (Stats.fruitSpawnRate * 0.5f);
+    }
 
 	IEnumerator SpawnFruits ()
 	{
@@ -26,7 +28,7 @@ public class FruitSpawner : MonoBehaviour {
 			Transform spawnPoint = spawnPoints[spawnIndex];
 
 			GameObject spawnedFruit = Instantiate(fruitPrefab, spawnPoint.position, spawnPoint.rotation);
-			Destroy(spawnedFruit, 5f);
+			Destroy(spawnedFruit, 10f);
 		}
 	}
 	

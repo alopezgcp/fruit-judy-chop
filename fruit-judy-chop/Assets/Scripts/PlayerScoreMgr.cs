@@ -85,9 +85,6 @@ public class PlayerScoreMgr : MonoBehaviour
     {
         if (Stats.playerName != "")
         {
-            Stats.timeOffset = Time.time;
-            Stats.CurrentScore = 0;
-            Stats.LivesLeft = 3;
             SceneManager.LoadScene("Main");
         }
     }

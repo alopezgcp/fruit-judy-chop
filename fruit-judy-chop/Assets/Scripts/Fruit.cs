@@ -11,7 +11,9 @@ public class Fruit : MonoBehaviour {
 
 	void Start ()
 	{
+        transform.localScale = new Vector3(Stats.fruitScale, Stats.fruitScale, Stats.fruitScale);
 		rb = GetComponent<Rigidbody2D>();
+        startForce *= Stats.fruitSpeed;
 		rb.AddForce(transform.up * startForce, ForceMode2D.Impulse);
 	}
 
@@ -24,8 +26,11 @@ public class Fruit : MonoBehaviour {
 			Quaternion rotation = Quaternion.LookRotation(direction);
 
 			GameObject slicedFruit = Instantiate(fruitSlicedPrefab, transform.position, rotation);
+            slicedFruit.transform.localScale = new Vector3(Stats.fruitScale, Stats.fruitScale, Stats.fruitScale);
 			Destroy(slicedFruit, 3f);
-			Destroy(gameObject);
+            Stats.CurrentScore += Stats.PointsPerSlice;
+            Debug.Log(Stats.CurrentScore);
+            Destroy(gameObject);
 		}
 	}
 

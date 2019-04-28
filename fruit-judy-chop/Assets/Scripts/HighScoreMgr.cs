@@ -59,9 +59,6 @@ public class HighScoreMgr : MonoBehaviour
 
     public void PlayAgain()
     {
-        Stats.LivesLeft = 3;
-        Stats.CurrentScore = 0;
-        Stats.timeOffset = Time.time;
         SceneManager.LoadScene("Main");
     }
 

@@ -23,7 +23,7 @@ public class Blade : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		circleCollider = GetComponent<CircleCollider2D>();
         TrailRenderer trail = bladeTrailPrefab.GetComponent<TrailRenderer>();
-        trail.startWidth = 1f;
+        trail.startWidth = Stats.bladeScale;
         trail.endWidth = trail.startWidth / 10;
 	}
 
